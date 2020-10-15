@@ -1,57 +1,19 @@
-from django.shortcuts import render, redirect
-from .Forms import *
+from django.shortcuts import render
 
+# Create your views here.
 
-def dashboard(request):
+def home(req):
     context = {}
-    return render(request, "joinwithmeapp/dashboard.html", context)
+    return render(req, 'dashboard.html', context)
 
-
-def startup_page(request):
+def startup(req):
     context = {}
-    return render(request, "joinwithmeapp/startup_page.html", context)
+    return render(req, 'startup.html', context)
 
-
-def member_page(request):
+def investor(req):
     context = {}
-    return render(request, "joinwithmeapp/member_page.html", context)
+    return render(req, 'investor.html', context)
 
-
-def investor_page(request):
+def member(req):
     context = {}
-    return render(request, "joinwithmeapp/investor_page.html", context)
-
-
-def startup_form(request):
-    form = StartUpForm()
-    if request.method == "POST":
-        form = StartUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-    context = {"form": form}
-    return render(request, 'joinwithmeapp/startup_form.html', context)
-
-
-def member_form(request):
-    form = MemberForm()
-    if request.method == "POST":
-        form = MemberForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-    context = {"form": form}
-
-    return render(request, 'joinwithmeapp/member_form.html', context)
-
-
-def investor_form(request):
-    form = InvestorForm()
-    if request.method == "POST":
-        form = InvestorForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/')
-    context = {"form": form}
-
-    return render(request, 'joinwithmeapp/investor_form.html', context)
+    return render(req, 'member.html', context)
