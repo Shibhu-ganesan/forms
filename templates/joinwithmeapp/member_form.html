@@ -1,0 +1,104 @@
+{% extends 'joinwithmeapp/main.html'%}
+{% load static %}
+{% block style %}
+<style>
+
+    body{
+    margin:0;
+    padding:0;
+    background-image: url('{% static "images/yellow.jpg"%}');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.startup-box{
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color:black;
+
+}
+.startup-box h1{
+    float: left;
+    font-size: 40px;
+    border-bottom: 6px solid #4a5059;
+    margin-bottom: 20px;
+    padding: 5px 0;
+}
+.textbox{
+    width: 80%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 2px 0;
+    margin: 2px 0;
+    border: 0;
+    border-bottom: 1px solid #4a5059;
+    background: transparent;
+    outline: none;
+    color: black;
+
+
+}
+.bt{
+    width: 100%;
+    background: transparent;
+    border: 2px solid #4a5059;
+    color: black;
+    padding: 5px;
+    font-size: 18px;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    margin: 12px 0;
+}
+.des{
+    width: 125%;
+}
+
+
+::-webkit-input-placeholder {
+   color: #4a5059;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #4a5059;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #4a5059;
+}
+
+:-ms-input-placeholder {
+   color: #4a5059;
+}
+
+</style>
+{% endblock style %}
+{% block content %}
+<div class="startup-box">
+
+    <h1>Member</h1>
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+
+            {{ form.Name }}
+
+            {{ form.Field }}
+
+            {{ form.Email }}
+        <div class="des">
+            {{ form.Query }}
+        </div>
+
+
+
+        <input class="bt btn-outline-dark" type="submit" value="submit">
+
+    </form>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'joinwithmeapp/main.html'%}
+{% load static %}
+
+{% block style %}
+<style>
+
+    body{
+    margin:0;
+    padding:0;
+    background-image: url('{% static "images/prof.jpg"%}');
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+.startup-box{
+    width: 500px;
+    position: absolute;
+    top: 43%;
+    left: 54%;
+    transform: translate(-50%,-50%);
+    color:white;
+
+}
+.startup-box h1{
+    float: left;
+    font-size: 40px;
+    border-bottom: 6px solid #418774;
+    margin-bottom: 20px;
+    padding: 5px 0;
+}
+.textbox{
+    width: 80%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 2px 0;
+    margin: 2px 0;
+    border: 0;
+    border-bottom: 1px solid #418774;
+    background: transparent;
+    outline: none;
+    color: black;
+
+
+}
+.bt{
+    width: 75%;
+    background: transparent;
+    border: 2px solid #418774;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+    outline: none;
+    text-align: center;
+    cursor: pointer;
+    margin: 12px 0;
+}
+
+::-webkit-input-placeholder {
+   color: white;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: white;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: white;
+}
+
+:-ms-input-placeholder {
+   color: white;
+}
+
+.a:hover {
+  background-color:#418774 ;
+}
+</style>
+{% endblock style %}
+{% block content %}
+<div class="startup-box">
+
+    <h1>Investor</h1>
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+
+        {{ form.Name }}
+        {{ form.Email }}
+        {{ form.Field }}
+
+
+        <input class="bt btn-outline a" type="submit" value="submit">
+
+    </form>
+
+
+</div>
+{% endblock content%}
